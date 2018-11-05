@@ -38,16 +38,21 @@ myConfig :: XConfig (ModifiedLayout WorkspaceDir
                     MyLayout)))
 myConfig = def
   { modMask = modm
+  , terminal = myTerminal
   , layoutHook = setWorkspaceDirs $ avoidStruts $ smartBorders myLayoutHook
   , workspaces = myWorkspaces
+  , manageHook = manageHook def <+> scratchpadManageHook (W.RationalRect 0.2 0.2 0.6 0.6)
   , startupHook = composeAll [docksStartupHook, setWMName "LG3D", fixScreens]
   } `additionalKeys`
   [ ((modm, xK_z), goToSelectedWS myTopicConfig True myGSConfig)
   , ((modm, xK_l), spawn "i3lock -n -c 000000")
   , ((modm, xK_t), sendMessage NextLayout)
   , ((modm, xK_f), fixScreens)
-  , ((modm, xK_space), scratchpadSpawnActionCustom "gnome-terminal --disable-factory --name scratchpad")
+  , ((modm, xK_space), scratchpadSpawnActionCustom "urxvt -name scratchpad")
   ]
+
+myTerminal :: String
+myTerminal = "urxvt"
 
 fixScreens :: X ()
 fixScreens = do
