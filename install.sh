@@ -8,5 +8,6 @@ ln -sf $DIR/bashrc        $HOME/.bashrc
 ln -sf $DIR/bash_aliases  $HOME/.bash_aliases
 ln -sf $DIR/vimrc         $HOME/.vimrc
 ln -sf $DIR/xmonad.start  $HOME/xmonad.start
+ln -sf $DIR/Xresources    $HOME/.Xresources
 
 chmod +x $DIR/xmonad.start
