@@ -3,7 +3,7 @@ syntax on
 " write when we :make
 set autowrite
 
-colorscheme torte
+colorscheme slate
 
 " indentation
 set expandtab
