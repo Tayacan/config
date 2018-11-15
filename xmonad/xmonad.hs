@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeSynonymInstances #-} -- allow funky coloring thing
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
-import XMonad
+import XMonad hiding (setBackground)
 
 import qualified XMonad.StackSet as W
 
@@ -48,6 +48,7 @@ myConfig = def
   , ((modm, xK_l), spawn "i3lock -n -c 000000")
   , ((modm, xK_t), sendMessage NextLayout)
   , ((modm, xK_f), fixScreens)
+  , ((modm, xK_k), spawn "scrot ~/screenshot/%Y-%m-%d-%T.png")
   , ((modm, xK_space), scratchpadSpawnActionCustom "urxvt -name scratchpad")
   ]
 
@@ -61,6 +62,10 @@ fixScreens = do
     3 -> spawn "xrandr --output eDP-1 --mode 2048x1152 --auto --output DP-1-1 --mode 2560x1440 --right-of eDP-1 --auto --output DP-1-2 --mode 2560x1440 --right-of DP-1-1 --auto"
     1 -> spawn "xrandr --output eDP-1 --mode 2048x1152 --auto"
     _ -> pure ()
+  setBackground
+
+setBackground :: X ()
+setBackground = spawn "feh --bg-fill ~/Pictures/dawnwall.jpg"
 
 modm :: KeyMask
 modm = mod4Mask

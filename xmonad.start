@@ -1,5 +1,3 @@
 i3status | xmobar -o -t "%StdinReader%" -c "[Run StdinReader]" &
-/home/maya/fixscreens
-feh --bg-fill ~/Pictures/dawnwall.jpg
 
 exec xmonad-session
