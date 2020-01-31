@@ -41,3 +41,6 @@ URxvt.boldfont:xft:Monospace-Bold:pixelsize=15
 
 ! disable scrollbar
 URxvt.scrollBar: false
+
+! change font size on the fly
+URxvt.perl-ext-common: ...,font-size
