@@ -46,7 +46,7 @@ myConfig = def
   } `additionalKeys`
   [ ((modm, xK_z), goToSelectedWS myTopicConfig True myGSConfig)
   , ((modm, xK_l), spawn "i3lock -n -c 000000")
-  , ((modm, xK_t), sendMessage NextLayout)
+  , ((modm, xK_n), sendMessage NextLayout)
   , ((modm, xK_f), fixScreens)
   , ((modm, xK_k), spawn "scrot ~/screenshot/%Y-%m-%d-%T.png")
   , ((modm, xK_space), scratchpadSpawnActionCustom "urxvt -name scratchpad")
@@ -72,6 +72,7 @@ modm = mod4Mask
 
 myWorkspaces :: [String]
 myWorkspaces = ["web"
+               ,"intellij"
                ,"misc1"
                ,"misc2"
                ,"misc3"
@@ -107,6 +108,7 @@ myTopicConfig = TopicConfig
       , ("calendar", appBrowser ["https://calendar.google.com"])
       , ("slack", safeSpawn "slack" [])
       , ("funbrowser", newBrowser ["https://reddit.com", "https://discordapp.com/activity"])
+      , ("intellij", safeSpawn "intellij" [])
       ]
   , defaultTopicAction = const $ return ()
   , defaultTopic = "web"
